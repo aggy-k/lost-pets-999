@@ -1,0 +1,22 @@
+<h1>Pets#show</h1>
+<p>Find me in app/views/pets/show.html.erb</p>
+
+<div class="w-50">
+  <%= image_tag @pet.image_url, class: "img-fluid" %>
+</div>
+
+<div class="mt-4">
+  <p>A <%= @pet.species %> was found at:</p>
+  <p><%= @pet.address %> <%= time_ago_in_words(@pet.last_seen_at) %> ago.</p>
+</div>
+
+<div class="mt-4">
+  <%= link_to 'Contact us for more information!' ,'#' %>
+</div>
+
+<div class="mt-4 d-flex gap-3">
+  <%= link_to '← Back', pets_path %>
+  <%= link_to 'Edit', edit_pet_path(@pet) %>
+  <%= link_to 'Delete', pet_path(@pet), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</div>
+

@@ -1,0 +1,9 @@
+<div class="mt-5 w-50 mx-auto">
+  <%= simple_form_for pet do |f| %>
+    <%= f.input :address %>
+    <%= f.input :last_seen_at %>
+    <%= f.input :species, collection: Pet::SPECIES, prompt: "Select the species", as: :select %>
+    <%= f.input :image_url %>
+    <%= f.button :submit, class: 'btn-primary mt-4' %>
+  <% end %>
+</div>

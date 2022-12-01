@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-between">
+  <h1>LOST PETS</h1>
+  <%= link_to 'I found a pet!', new_pet_path %>
+</div>
+
+<div class="mt-4 row gap-3 mx-auto">
+  <% @pets.each do |pet| %>
+    <%#= link_to 'Hello', pet_path(pet) %>
+    <%= link_to pet_path(pet), class: "card", style: "width: 18rem;" do %>
+
+      <%= image_tag pet.image_url %>
+      <div class="card-body">
+        <p><%= pet.species %></p>
+        <p>
+          Last seen at:<br>
+          <%= pet.address %><br>
+          <%= time_ago_in_words(pet.last_seen_at) %> ago
+        </p>
+      </div>
+
+    <% end %>
+  <% end %>
+</div>
